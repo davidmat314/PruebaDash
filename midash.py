@@ -126,4 +126,4 @@ def update_graph(slider_value, tipo_grafico):
 
 # Ejecutamos la aplicación
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
