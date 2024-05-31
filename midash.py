@@ -1,17 +1,22 @@
-import dash
-from dash import dcc, html
+import pandas as pd
 import numpy as np
 import plotly.graph_objs as go
-import pandas as pd
+import dash
+from dash import dcc, html
+from dash.dependencies import Input, Output
 
 # Generamos valores aleatorios
 valores = np.random.randint(0, 1001, size=1000)
+
+# Creamos una serie de booleanos para indicar los VP y FP
 vp = (valores >= 500) & (valores >= 200)
 fp = ~vp
+
+# Creamos el DataFrame
 df = pd.DataFrame({'Valor': valores, 'VP': vp, 'FP': fp})
 
 # Inicializamos la aplicación Dash
-app = dash.Dash(__name__, serve_locally=True)
+app = dash.Dash(__name__)
 
 # Creamos el layout de la aplicación
 app.layout = html.Div([
@@ -121,4 +126,4 @@ def update_graph(slider_value, tipo_grafico):
 
 # Ejecutamos la aplicación
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8050)
+    app.run_server(debug=True)
