@@ -1,26 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualización Dash</title>
-    <!-- Incluye los archivos estáticos generados por Dash -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@glue42/dash@latest/bundle.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glue42/dash@latest/assets/main.css" />
 </head>
 <body>
     <h1>Visualización Dash</h1>
     <!-- Contenedor donde se incrustará la aplicación Dash -->
-    <div id="dash-container"></div>
-    <!-- Script para cargar la aplicación Dash -->
-    <script>
-        const app = new Dash({
-            appUrl: 'http://127.0.0.1:8050/', // Reemplaza con la URL donde se ejecuta tu aplicación Dash
-            containerId: 'dash-container'
-        });
-        app.start();
-    </script>
+    <iframe src="http://127.0.0.1:8050/" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
 </body>
 </html>
- 
