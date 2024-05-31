@@ -33,7 +33,9 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
+        cd $GITHUB_WORKSPACE
         midash.py
     - name: Run Gunicorn
       run: |
+        cd $GITHUB_WORKSPACE
         gunicorn -w 4 -b 0.0.0.0:8050 midash:server
