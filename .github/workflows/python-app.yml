@@ -27,4 +27,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run dash.py
-        run: python dash.py
+        run: python midash.py
