@@ -11,7 +11,7 @@ valores = np.random.randint(0, 1001, size=1000)
 # Creamos una serie de booleanos para indicar los VP y FP
 vp = (valores >= 500) & (valores >= 200)
 fp = ~vp
-
+ 
 # Creamos el DataFrame
 df = pd.DataFrame({'Valor': valores, 'VP': vp, 'FP': fp})
 
