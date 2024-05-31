@@ -33,7 +33,7 @@ jobs:
       - name: Run Gunicorn
         run: |
           cd $GITHUB_WORKSPACE
-          gunicorn -w 4 -b 0.0.0.0:8050 midash:server
+          gunicorn -w 4 -b 0.0.0.0:8050 midash:midash
       - name: Test with pytest
         run: |
           cd $GITHUB_WORKSPACE
