@@ -2,6 +2,7 @@ import dash
 from dash import dcc, html
 import numpy as np
 import plotly.graph_objs as go
+import pandas as pd
 
 # Generamos valores aleatorios
 valores = np.random.randint(0, 1001, size=1000)
