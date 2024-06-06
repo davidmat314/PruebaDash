@@ -1,40 +1,35 @@
-name: Python application
+name: Generate CSV
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-permissions:
-  contents: read
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v3
-        with:
-          python-version: "3.10"
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install flake8 pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          pip install gunicorn  # Instalar Gunicorn como una dependencia
 
-      - name: Run script to generate CSV
-        run: |
-    
-          python createcsv.py
-      - name: Commit and push changes
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git add datos.csv
-          git commit -m "Actualizar archivo CSV generado"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas # Agrega aquí cualquier otra dependencia que necesite tu script
+
+    - name: Run Python script
+      run: python createcsv.py
+
+    - name: Commit CSV file
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add datos.csv # Cambia esto al nombre de tu archivo CSV generado
+        git commit -m 'Add generated CSV file'
+        git push
